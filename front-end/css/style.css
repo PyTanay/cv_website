@@ -184,12 +184,14 @@ label::after {
   background-color: green;
 }
 .about-icons {
-  margin-top: 50px;
   margin-right: 50px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 .about-icon-group {
+  margin-top: 30px;
+  width: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,25 +223,23 @@ label::after {
   cursor: pointer;
 }
 .education {
-  padding-top: 100px;
+  padding-top: 10px;
   margin-left: 50px;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
 }
 .education h1 {
-  text-align: left;
-}
-.educationh1 {
   text-align: left;
 }
 .education-container {
   margin-top: 50px;
   margin-right: 50px;
-  height: 60vh;
+  height: 70vh;
   padding: 10px 50px;
   background-color: #112235;
   border-radius: 30px;
   margin-bottom: 50px;
-  color: grey;
+  color: rgb(146, 43, 43);
+  font-size: 12px;
 }
 .education-group {
   display: flex;
@@ -247,10 +247,10 @@ label::after {
 }
 .vertical-line {
   height: 100%;
-  margin-left: 20px;
+  margin-left: 15px;
   margin-top: 10px;
-  width: 2px;
-  background-color: grey !important;
+  width: 1px;
+  background-color: rgb(146, 43, 43) !important;
 }
 .education-cluster {
   display: flex;
@@ -261,7 +261,7 @@ label::after {
   margin-top: 5px;
   margin-left: 10px;
   color: grey;
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
 }
 .education-cluster h3 {
@@ -274,6 +274,45 @@ label::after {
 .details {
   font-weight: normal;
   font-size: 17px;
+}
+.experience {
+  padding-top: 10px;
+  margin-left: 50px;
+  margin-bottom: 800px;
+}
+.experience h1 {
+  text-align: left;
+}
+.experience-container {
+  margin-top: 50px;
+  margin-right: 50px;
+  height: 20vh;
+  padding: 10px 50px;
+  background-color: #112235;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  color: rgb(146, 43, 43);
+  font-size: 12px;
+}
+.experience-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-right: 50px;
+}
+.experience-card {
+  width: 250px;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 15px 15px 10px #112235;
+  color: white;
+  text-align: center;
+  transition: 0.1s;
+}
+.experience-card:hover {
+  transform: scale(1.1);
+  transition: transform 0.1s linear;
 }
 @keyframes blink {
   50% {
