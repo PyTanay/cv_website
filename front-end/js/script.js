@@ -118,6 +118,15 @@ particlesJS.load("particles-js", "assets/particles.json", function () {
   console.log("callback - particles.js config loaded");
 });
 
+window.onresize = () => {
+  if (window.innerWidth % 10 == 0) {
+    document.reload();
+    // document.getElementById("particles-js").innerHTML = "";
+    // particlesJS.load("particles-js", "assets/particles.json", function () {
+    //   console.log("callback - particles.js config loaded");
+    // });
+  }
+};
 // to change the numbers or animate on scroll to certain elemet
 window.onscroll = myFunction;
 var counter = 0;
@@ -132,17 +141,17 @@ function myFunction() {
 
 //color array to pick random color from
 var colorList = [
-  "#E53935",
-  "#AD1457",
-  "#6A1B9A",
-  "#304FFE",
-  "#1E88E5",
-  "#006064",
-  "#004D40",
-  "#2E7D32",
-  "#9E9D24",
-  "#F57F17",
-  "#BF360C",
+  "#E5393560",
+  "#AD145760",
+  "#6A1B9A60",
+  "#304FFE60",
+  "#1E88E560",
+  "#00606460",
+  "#004D4060",
+  "#2E7D3260",
+  "#9E9D2460",
+  "#F57F1760",
+  "#BF360C60",
 ];
 var cardList = document.querySelectorAll(".experience-card");
 cardList.forEach((element) => {
