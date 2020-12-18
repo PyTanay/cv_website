@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="./fa/css/all.css" rel="stylesheet" />
+    <script defer src="./fa/js/all.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script src="./particles.js/particles.js"></script>
+    <title>Tanay-CV</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>Tanay's CV</h1>
+        <a href="#"><span class="icon"><i class="fas fa-house-user"></i></span>Home</a>
+        <a href="#about"><span class="icon"><i class="fas fa-user-check"></i></span>About</a>
+        <a href="#education"><span class="icon"><i class="fas fa-graduation-cap"></i></span>Education</a>
+        <a href="#"><span class="icon"><i class="fas fa-layer-group"></i></span>Experience</a>
+        <a href="#"><span class="icon"><i class="far fa-comments"></i></span>Contact</a>
+    </div>
+    <div class="particles-js">
+        <div id="particles-js"></div>
+    </div>
+    <div class="main">
+        <img src="./img/tanay.jpg" alt="Tanay Picture" />
+        <h1>Tanay Desai</h1>
+        <!-- <p>I'm a <label id="changeText" value=""></label><span id="curser">|</span></p><br> -->
+        <p>
+            I'm a <span><label id="changeText" value=""></label></span><span id="curser">|</span>
+        </p>
+        <br />
+        <p style="font-size: 0.7rem">
+            <a href="https://www.linkedin.com/in/pyTanay" class="social-icons"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/PyTanay" class="social-icons"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.facebook.com/tanaydesai26/" class="social-icons"><i class="fab fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.instagram.com/pytanay/" class="social-icons"><i class="fab fa-instagram fa-2x"></i></a>
+        </p>
+        <div class="home-buttons">
+            <button>Hire Me</button>
+            <button>Download CV</button>
+        </div>
+        <div class="scroll-down">
+            <a href="#about">
+                <p>Scroll Down</p>
+                <div class="scroll-down-icon">
+                    <i class="fas fa-angle-double-down"></i>
+                </div>
+            </a>
+        </div>
+        <div class="about" id="about" onscroll="myscript">
+            <h1>About Me</h1>
+            <img src="./img/tanay.jpg" alt="Tanay Picture" />
+            <div class="about-container">
+                <div class="about-sub">
+                    <p>
+                        I am Tanay Desai, Chemical Engineer from Gujarat,India. I am a experianced process design and optimization
+                        expert.
+                        I am an adventure sports lover and paragliding pilot. Also due to my interest in programming I am a good full
+                        stack developer.
+                    </p>
+                    <button>Download CV</button>
+                </div>
+                <div class="about-sub-2">
+                    <div class="about-sub-3">
+                        <h4 class="description">Process Design & optimization</h4>
+                        <h4 class="percentage">80%</h4>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%;background-color: green;"></div>
+                    </div>
+                    <div class="about-sub-3">
+                        <h4 class="description">Process Simulation</h4>
+                        <h4 class="percentage">90%</h4>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;background-color: yellow;"></div>
+                    </div>
+                    <div class="about-sub-3">
+                        <h4 class="description">Data analysis</h4>
+                        <h4 class="percentage">90%</h4>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;background-color: rebeccapurple;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-icons">
+                <div class="about-icon-group">
+                    <i class="fas fa-fire-alt fa-3x"></i>
+                    <div class="about-icon-text">
+                        <h1 value=15>15</h1>
+                        <p>Process Modifications</p>
+                    </div>
+                </div>
+                <div class="about-icon-group">
+                    <i class="fas fa-coffee fa-3x"></i>
+                    <div class="about-icon-text">
+                        <h1 value=5>5</h1>
+                        <p>Years of experiance</p>
+                    </div>
+                </div>
+                <div class="about-icon-group">
+                    <i class="far fa-clipboard fa-3x"></i>
+                    <div class="about-icon-text">
+                        <h1 value=120>120</h1>
+                        <p>Datasheets Prepared</p>
+                    </div>
+                </div>
+                <div class="about-icon-group">
+                    <i class="fas fa-microchip fa-3x"></i>
+                    <div class="about-icon-text">
+                        <h1 value=6>6</h1>
+                        <p>Simulation Environments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="education" id="education">
+            <h1>Education</h1>
+            <div class="education-container">
+                <div class="education-cluster">
+                    <div class="education-group">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="education-text-group">
+                        <p>2011 to 2015</p>
+                        <h3>Bachelor's Degree</h3>
+                        <h3 class="details">Bachelor's degree in chemical engineering from SV National Institute of
+                            Technology<br>Surat,Gujarat,Inida</h3>
+                    </div>
+                </div>
+                <div class="education-cluster">
+                    <div class="education-group">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="education-text-group">
+                        <p>2009 to 2011</p>
+                        <h3>High School</h3>
+                        <h3 class="details">Science major from BVB's Narmada Vidhyalaya,<br>Bharuch,Gujarat,India</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
