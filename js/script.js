@@ -118,11 +118,8 @@ particlesJS.load("particles-js", "assets/particles.json", function () {
   console.log("callback - particles.js config loaded");
 });
 
-elem1 = document.getElementById("about");
+// to change the numbers or animate on scroll to certain elemet
 window.onscroll = myFunction;
-//     console.log('Hello')
-// }
-// elem1.addEventListener("scroll",myFunction)
 var counter = 0;
 function myFunction() {
   if (counter == 0) {
@@ -132,3 +129,23 @@ function myFunction() {
     }
   }
 }
+
+//color array to pick random color from
+var colorList = [
+  "#E53935",
+  "#AD1457",
+  "#6A1B9A",
+  "#304FFE",
+  "#1E88E5",
+  "#006064",
+  "#004D40",
+  "#2E7D32",
+  "#9E9D24",
+  "#F57F17",
+  "#BF360C",
+];
+var cardList = document.querySelectorAll(".experience-card");
+cardList.forEach((element) => {
+  var random_color = colorList[Math.floor(Math.random() * colorList.length)];
+  element.style.backgroundColor = random_color;
+});
