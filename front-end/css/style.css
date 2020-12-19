@@ -439,7 +439,7 @@ label::after {
   animation: point 1s linear 0s infinite;
 }
 /* media queries */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .navbar {
     left: -250px;
   }
