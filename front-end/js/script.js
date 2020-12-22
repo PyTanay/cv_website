@@ -158,3 +158,26 @@ cardList.forEach((element) => {
   var random_color = colorList[Math.floor(Math.random() * colorList.length)];
   element.style.backgroundColor = random_color;
 });
+
+//for the navigation toggle button
+
+document.querySelector(".nav-button").addEventListener("click", navClick);
+var toggleState = true;
+console.log(document.querySelector(".navbar"));
+function navClick() {
+  if (toggleState === true) {
+    document.querySelector(".navbar").style.left = 0;
+    document.querySelector(".nav-button").style.left = "250px";
+    toggleState = false;
+  } else {
+    document.querySelector(".navbar").style.left = "-250px";
+    document.querySelector(".nav-button").style.left = "0px";
+    toggleState = true;
+  }
+}
+document.querySelector(".main").addEventListener("click", closeNav);
+function closeNav() {
+  if (toggleState === false) {
+    navClick();
+  }
+}
