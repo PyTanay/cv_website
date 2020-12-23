@@ -118,26 +118,26 @@ particlesJS.load("particles-js", "assets/particles.json", function () {
   console.log("callback - particles.js config loaded");
 });
 
-window.onresize = () => {
-  if (window.innerWidth % 10 == 0) {
-    document.reload();
-    // document.getElementById("particles-js").innerHTML = "";
-    // particlesJS.load("particles-js", "assets/particles.json", function () {
-    //   console.log("callback - particles.js config loaded");
-    // });
-  }
-};
+// window.onresize = () => {
+//   if (window.innerWidth % 10 == 0) {
+//     window.reload();
+//     // document.getElementById("particles-js").innerHTML = "";
+//     // particlesJS.load("particles-js", "assets/particles.json", function () {
+//     //   console.log("callback - particles.js config loaded");
+//     // });
+//   }
+// };
 // to change the numbers or animate on scroll to certain elemet
-window.onscroll = myFunction;
-var counter = 0;
-function myFunction() {
-  if (counter == 0) {
-    if (window.pageYOffset > 700) {
-      console.log("hello");
-      counter++;
-    }
-  }
-}
+// window.onscroll = myFunction;
+// var counter = 0;
+// function myFunction() {
+//   if (counter == 0) {
+//     if (window.pageYOffset > 700) {
+//       console.log("hello");
+//       counter++;
+//     }
+//   }
+// }
 
 //color array to pick random color from
 var colorList = [
@@ -181,3 +181,70 @@ function closeNav() {
     navClick();
   }
 }
+var counter1 = 0,
+  counter2 = 0,
+  counter3 = 0;
+var incrementBar = (elem) => {
+  if (counter1 === 0) {
+    if (document.documentElement.scrollTop + window.innerHeight > elem.offsetTop) {
+      // console.log(parseInt(document.querySelectorAll(".progress-bar")[0].style.width.replace("%", "")));
+      console.log(elem.children[0]);
+      x1 = parseInt(elem.children[0].style.width.replace("%", ""));
+      var y = 0;
+      console.log(elem.parentElement.getElementsByClassName("percentage"));
+      var interval1 = setInterval(() => {
+        elem.children[0].style.width = y + "%";
+        // document.querySelectorAll(".percentage")[0].innerText = y + "%";
+        y++;
+        if (y > x1) clearInterval(interval1);
+      }, 10);
+      counter1++;
+    }
+  }
+};
+window.onscroll = () => {
+  // if (counter1 === 0) {
+  // console.log(document.documentElement.scrollTop, document.querySelectorAll(".progress")[0].offsetTop);
+  // console.log(document.querySelectorAll(".percentage")[0].innerText);
+  incrementBar(document.querySelectorAll(".progress")[0]);
+  //   if (document.documentElement.scrollTop + window.innerHeight > document.querySelectorAll(".progress")[0].offsetTop) {
+  //     // console.log(parseInt(document.querySelectorAll(".progress-bar")[0].style.width.replace("%", "")));
+  //     x1 = parseInt(document.querySelectorAll(".progress-bar")[0].style.width.replace("%", ""));
+  //     var y = 0;
+  //     var interval1 = setInterval(() => {
+  //       document.querySelectorAll(".progress-bar")[0].style.width = y + "%";
+  //       document.querySelectorAll(".percentage")[0].innerText = y + "%";
+  //       y++;
+  //       if (y > x1) clearInterval(interval1);
+  //     }, 10);
+  //     counter1++;
+  //   }
+  // }
+
+  // if (counter2 === 0) {
+  //   if (document.documentElement.scrollTop + window.innerHeight > document.querySelectorAll(".progress")[1].offsetTop) {
+  //     x2 = parseInt(document.querySelectorAll(".progress-bar")[1].style.width.replace("%", ""));
+  //     var z = 0;
+  //     var interval2 = setInterval(() => {
+  //       document.querySelectorAll(".progress-bar")[1].style.width = z + "%";
+  //       document.querySelectorAll(".percentage")[1].innerText = z + "%";
+  //       z++;
+  //       if (z > x2) clearInterval(interval2);
+  //     }, 10);
+  //     counter2++;
+  //   }
+  // }
+  // if (counter3 === 0) {
+  //   if (document.documentElement.scrollTop + window.innerHeight > document.querySelectorAll(".progress")[2].offsetTop) {
+  //     x2 = parseInt(document.querySelectorAll(".progress-bar")[2].style.width.replace("%", ""));
+  //     var z2 = 0;
+  //     var interval3 = setInterval(() => {
+  //       document.querySelectorAll(".progress-bar")[2].style.width = z2 + "%";
+  //       document.querySelectorAll(".percentage")[2].innerText = z2 + "%";
+  //       z++;
+  //       if (z2 > x2) clearInterval(interval3);
+  //     }, 10);
+  //     counter3++;
+  //   }
+  // }
+};
