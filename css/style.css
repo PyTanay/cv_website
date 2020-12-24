@@ -177,13 +177,13 @@ label::after {
   clear: both;
 }
 .description {
-  margin: auto;
-  padding-top: 20px;
+  position: relative;
+  top: -50px;
   float: left;
 }
 .percentage {
-  margin: auto;
-  padding-top: 20px;
+  position: relative;
+  top: -50px;
   float: right;
 }
 .progress {
