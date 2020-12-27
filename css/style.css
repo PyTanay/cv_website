@@ -91,7 +91,8 @@ label::after {
   margin-bottom: 60px;
 }
 .home-buttons button,
-.about button {
+.about button,
+.contact-container button {
   font-size: 1rem;
   font-weight: bold;
   color: white;
@@ -105,6 +106,24 @@ label::after {
   transition: transform 0.2s;
   box-shadow: 0 0 1px transparent;
   transform: perspective(1px) translateZ(0);
+}
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.home-buttons button:hover,
+.about button:hover,
+.contact-container button:hover {
+  animation-name: shrink;
+  animation-duration: 0.3s;
+  cursor: pointer;
 }
 .scroll-down p {
   margin: 0px;
@@ -222,22 +241,6 @@ label::after {
   margin-left: 10px;
   text-align: left;
 }
-@keyframes shrink {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.85);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.home-buttons button:hover {
-  animation-name: shrink;
-  animation-duration: 0.3s;
-  cursor: pointer;
-}
 .education {
   padding-top: 10px;
   margin-left: 50px;
@@ -295,13 +298,13 @@ label::after {
   padding-top: 10px;
   margin-left: 50px;
   margin-bottom: 100px;
+  margin-right: 50px;
 }
 .experience h1 {
   text-align: left;
 }
 .experience-container {
   margin-top: 50px;
-  margin-right: 50px;
   padding: 10px 50px;
   padding-bottom: 50px;
   background-color: #11223591;
@@ -312,14 +315,99 @@ label::after {
 }
 .experience-card-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-right: 50px;
+  justify-content: center;
+  height: 350px;
+  margin-top: 80px;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  perspective: 1200px;
 }
+@-webkit-keyframes spincube {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    -webkit-transform: rotateY(-90deg);
+  }
+  50% {
+    -webkit-transform: rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: rotateY(-270deg);
+  }
+  100% {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+@keyframes spincube {
+  0% {
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    -moz-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+  50% {
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  75% {
+    -moz-transform: rotateY(-270deg);
+    -ms-transform: rotateY(-270deg);
+    transform: rotateY(-270deg);
+  }
+  100% {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes spincube2 {
+  0% {
+    transform: matrix3d(-0.859491, 0, -0.511151, 0, 0, 1, 0, 0, 0.511151, 0, -0.859491, 0, 0, 0, 0, 1);
+  }
+  100% {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+.cube-spin {
+  -webkit-animation-name: spincube;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+
+  animation-name: spincube;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 12s;
+  /* animation-play-state: running; */
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-transform-origin: 130px 150px 0px;
+  -moz-transform-origin: 130px 150px 0px;
+  -ms-transform-origin: 130px 150px 0px;
+  transform-origin: 0px 0px 0px;
+}
+/* .cube-spin:hover {
+  animation-play-state: paused;
+} */
 .experience-card {
+  position: absolute;
   width: 250px;
   height: 300px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   border-radius: 10px;
   box-shadow: 15px 15px 10px #112235;
   color: white;
@@ -328,12 +416,23 @@ label::after {
   padding-right: 5px;
   padding-left: 5px;
 }
+.card-1 {
+  -webkit-transform: translateX(-125px) translateZ(150px);
+}
+.card-2 {
+  -webkit-transform: translateX(-125px) rotateY(90deg) translateZ(150px);
+}
+.card-3 {
+  -webkit-transform: translateX(-125px) rotateY(-90deg) translateZ(150px);
+}
+.card-4 {
+  -webkit-transform: translateX(-125px) rotateY(180deg) translateZ(150px);
+}
 .experience-card p {
   font-size: 14px;
 }
 .experience-card:hover {
-  transform: scale(1.1);
-  transition: transform 0.1s linear;
+  cursor: pointer;
 }
 .contact {
   padding-top: 10px;
@@ -396,22 +495,6 @@ label::after {
 .contact-container input:focus {
   outline: none;
   box-shadow: 0 0 0pt 2pt greenyellow;
-}
-.contact-container button {
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  margin: 20px;
-  margin-left: 0;
-  width: 150px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  background-color: #ff4c60;
-  transition: transform 0.2s;
-  box-shadow: 0 0 1px transparent;
-  transform: perspective(1px) translateZ(0);
 }
 @keyframes blink {
   50% {
