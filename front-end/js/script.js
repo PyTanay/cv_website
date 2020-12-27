@@ -1,5 +1,5 @@
 var arr2,
-  arr1 = ["Chemical Engineer", "Process Designer", "Hobbyist Programmer"];
+  barList = ["Chemical Engineer", "Process Designer", "Hobbyist Programmer"];
 var elem1 = document.getElementById("changeText");
 
 const sleep = (ms) => {
@@ -7,19 +7,19 @@ const sleep = (ms) => {
 };
 const recFunc = () => {
   return new Promise((resolve2) => {
-    for (let i = 0, p1 = Promise.resolve(); i < arr1.length; i++) {
+    for (let i = 0, p1 = Promise.resolve(); i < barList.length; i++) {
       p1 = p1.then(
         () =>
           new Promise((resolve1) => {
-            for (let j = 0, p = Promise.resolve(); j <= arr1[i].length * 2; j++) {
+            for (let j = 0, p = Promise.resolve(); j <= barList[i].length * 2; j++) {
               p = p.then(
                 () =>
                   new Promise((resolve) => {
                     setTimeout(function () {
-                      if (j <= arr1[i].length) {
-                        arr2 = arr1[i].slice(0, j);
+                      if (j <= barList[i].length) {
+                        arr2 = barList[i].slice(0, j);
                         elem1.setAttribute("value", arr2);
-                        if (j == arr1[i].length) {
+                        if (j == barList[i].length) {
                           document.getElementById("curser").setAttribute("class", "blink");
                           setTimeout(() => {
                             document.getElementById("curser").setAttribute("class", "");
@@ -29,12 +29,12 @@ const recFunc = () => {
                           resolve();
                         }
                       } else {
-                        arr2 = arr1[i].slice(0, arr1[i].length * 2 - j);
+                        arr2 = barList[i].slice(0, barList[i].length * 2 - j);
                         elem1.setAttribute("value", arr2);
                         resolve();
-                        if (arr1[i].length * 2 - j == 0) {
+                        if (barList[i].length * 2 - j == 0) {
                           resolve1();
-                          if (i == arr1.length - 1) {
+                          if (i == barList.length - 1) {
                             resolve2();
                           }
                         }
@@ -54,6 +54,11 @@ async function recRep() {
 }
 recRep();
 
+//on click of hire me button scroll to contact page
+function hireMe() {
+  var elem = document.getElementById("contact");
+  elem.scrollIntoView();
+}
 // another method for the typing effect!!
 
 // var i=1,j=1;
@@ -64,7 +69,7 @@ recRep();
 //     }
 //   }
 // async function recursiveRepetition(){
-//     await asyncForEach(arr1,async (elem)=>{
+//     await asyncForEach(barList,async (elem)=>{
 //         await waitFor(150);
 //         await displayText(elem)
 //     })
@@ -120,17 +125,17 @@ particlesJS.load("particles-js", "assets/particles.json", function () {
 
 //color array to pick random color from
 var colorList = [
-  "#E5393560",
-  "#AD145760",
-  "#6A1B9A60",
-  "#304FFE60",
-  "#1E88E560",
-  "#00606460",
-  "#004D4060",
-  "#2E7D3260",
-  "#9E9D2460",
-  "#F57F1760",
-  "#BF360C60",
+  "#E53935f0",
+  "#AD1457f0",
+  "#6A1B9Af0",
+  "#304FFEf0",
+  "#1E88E5f0",
+  "#006064f0",
+  "#004D40f0",
+  "#2E7D32f0",
+  "#9E9D24f0",
+  "#F57F17f0",
+  "#BF360Cf0",
 ];
 var cardList = document.querySelectorAll(".experience-card");
 cardList.forEach((element) => {
@@ -171,23 +176,90 @@ var incrementBar = (elem) => {
     if (y > x1) clearInterval(interval1);
   }, 5);
 };
-var counter1 = 0,
-  counter2 = 0,
-  counter3 = 0;
+
+//to increment the numbers next to icons
+var incrementIcon = (elem) => {
+  var x1 = elem.getElementsByTagName("h1")[0].getAttribute("data-value");
+  var y = 0;
+  var interval1 = setInterval(() => {
+    elem.getElementsByTagName("h1")[0].innerText = y;
+    y++;
+    if (y > x1) clearInterval(interval1);
+  }, 600 / x1);
+};
+
+//to spin the card on scroll into view
+// var spinCard = (elem) => {
+//   elem.classList.add("card-spin");
+// };
+
 //to execute all function on scroll when they appear on screen
+(arr3 = []).length = 11;
+arr3.fill(0);
 window.onscroll = () => {
-  var arr1 = document.querySelectorAll(".about-sub-3");
   var currentScroll = document.documentElement.scrollTop + window.innerHeight;
-  // if (currentScroll > arr1[0].offsetTop) {
+
+  // if (currentScroll > barList[0].offsetTop) {
   //   if (counter1 === 0) {
-  //     incrementBar(arr1[0]);
+  //     incrementBar(barList[0]);
   //     counter1++;
   //   }
   // }
-  currentScroll > arr1[0].offsetTop && counter1 === 0 && (incrementBar(arr1[0]), counter1++);
-  currentScroll > arr1[1].offsetTop && counter2 === 0 && (incrementBar(arr1[1]), counter2++);
-  currentScroll > arr1[2].offsetTop && counter3 === 0 && (incrementBar(arr1[2]), counter3++);
-  currentScroll < arr1[0].offsetTop && (counter1 = 0);
-  currentScroll < arr1[1].offsetTop && (counter2 = 0);
-  currentScroll < arr1[2].offsetTop && (counter3 = 0);
+  var barList = document.querySelectorAll(".about-sub-3");
+  barList.forEach((elem, index) => {
+    currentScroll > elem.offsetTop && arr3[index] === 0 && (incrementBar(elem), arr3[index]++);
+    currentScroll < elem.offsetTop && (arr3[index] = 0);
+  });
+  var iconList = document.querySelectorAll(".about-icon-group");
+  iconList.forEach((elem, index) => {
+    currentScroll > elem.offsetTop && arr3[index + 3] === 0 && (incrementIcon(elem), arr3[index + 3]++);
+    currentScroll < elem.offsetTop && (arr3[index + 3] = 0);
+  });
+  // var cardList = document.querySelectorAll(".experience-card");
+  // cardList.forEach((elem, index) => {
+  //   var elemOffsetTop = window.pageYOffset + elem.getBoundingClientRect().top;
+  //   currentScroll > elemOffsetTop && arr3[index + 7] === 0 && (elem.classList.add("card-spin"), arr3[index + 7]++);
+  //   currentScroll < elemOffsetTop && (elem.classList.remove("card-spin"), (arr3[index + 7] = 0));
+  // });
+};
+
+function findKeyframesRule(rule) {
+  var ss = document.styleSheets;
+  for (var i = 0; i < ss.length; ++i) {
+    for (var j = 0; j < ss[i].cssRules.length; ++j) {
+      // console.log(ss[i].cssRules[j].type);
+      if (ss[i].cssRules[j].type == 7 && ss[i].cssRules[j].name == rule) {
+        return ss[i].cssRules[j];
+      }
+    }
+  }
+  return null;
+}
+var keyFrames = findKeyframesRule("spincube2");
+//on hover over spinning cube every card falls back to its original place
+var spinCube = document.getElementsByClassName("cube-spin")[0];
+var hoverCounter = 0;
+spinCube.onmouseover = () => {
+  hoverCounter === 0 && (stopSpin(), hoverCounter++);
+};
+spinCube.onmouseleave = () => {
+  startSpin();
+  hoverCounter = 0;
+};
+
+var stopSpin = () => {
+  var currentPosition = window.getComputedStyle(spinCube).transform;
+  console.log(`0%{transform:${currentPosition}}`);
+  // keyFrames.cssRules[0].cssText = `0%{transform:${currentPosition}}`;
+  keyFrames.deleteRule("0%");
+
+  console.log(keyFrames.type);
+  spinCube.style.animationName = "spincube2";
+  spinCube.style.animationDuration = "1s";
+  spinCube.style.animationIterationCount = "initial";
+};
+var startSpin = () => {
+  spinCube.style.animationName = "spincube";
+  spinCube.style.animationDuration = "12s";
+  spinCube.style.animationIterationCount = "infinite";
 };
