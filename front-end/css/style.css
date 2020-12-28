@@ -274,7 +274,11 @@ label::after {
 .education-cluster {
   display: flex;
   margin-top: 20px;
+  animation-name: fadeInBottom;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
+
 .education-cluster p {
   margin: 0;
   margin-top: 5px;
@@ -323,6 +327,233 @@ label::after {
   -ms-perspective: 1200px;
   perspective: 1200px;
 }
+@-webkit-keyframes opencard1 {
+  25% {
+    -webkit-transform: translateX(-243px) translateZ(112.5px);
+  }
+  50% {
+    -webkit-transform: translateX(-361px) translateZ(75px);
+  }
+  75% {
+    -webkit-transform: translateX(-481px) translateZ(37.5px);
+  }
+  100% {
+    -webkit-transform: translateX(-600px);
+  }
+}
+@-webkit-keyframes opencard2 {
+  25% {
+    -webkit-transform: translateX(37.5px) translateZ(112.5px);
+  }
+  50% {
+    -webkit-transform: translateX(-75) translateZ(75px);
+  }
+  75% {
+    -webkit-transform: translateX(-187.5px) translateZ(37.5px);
+  }
+  100% {
+    -webkit-transform: translateX(-300px);
+  }
+}
+@-webkit-keyframes opencard3 {
+  25% {
+    -webkit-transform: translateX(0px) rotateY(90deg) translateZ(150px);
+  }
+  50% {
+    -webkit-transform: translateX(110px) rotateY(90deg) translateZ(0px);
+  }
+  75% {
+    -webkit-transform: translateX(125px) translateZ(37.5px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+  }
+}
+@-webkit-keyframes opencard4 {
+  25% {
+    -webkit-transform: translateX(0px) rotateY(-180deg) translateZ(112.5px);
+  }
+  50% {
+    -webkit-transform: translateX(-50px) rotateY(-180deg) translateZ(112.5px);
+  }
+  75% {
+    -webkit-transform: translateX(220px) rotateY(-270deg) translateZ(37.5px);
+  }
+  100% {
+    -webkit-transform: translateX(300px) rotateY(-360deg);
+  }
+}
+@keyframes opencard1 {
+  25% {
+    -moz-transform: translateX(-243px) translateZ(112.5px);
+    -ms-transform: translateX(-243px) translateZ(112.5px);
+    transform: translateX(-243px) translateZ(112.5px);
+  }
+  50% {
+    -moz-transform: translateX(-361px) translateZ(75px);
+    -ms-transform: translateX(-361px) translateZ(75px);
+    transform: translateX(-361px) translateZ(75px);
+  }
+  75% {
+    -moz-transform: translateX(-481px) translateZ(37.5px);
+    -ms-transform: translateX(-481px) translateZ(37.5px);
+    transform: translateX(-481px) translateZ(37.5px);
+  }
+  100% {
+    -moz-transform: translateX(-600px);
+    -ms-transform: translateX(-600px);
+    transform: translateX(-600px);
+  }
+}
+
+@keyframes opencard2 {
+  25% {
+    -moz-transform: translateX(37.5px) translateZ(112.5px);
+    -ms-transform: translateX(37.5px) translateZ(112.5px);
+    transform: translateX(37.5px) translateZ(112.5px);
+  }
+  50% {
+    -moz-transform: translateX(-75) translateZ(75px);
+    -ms-transform: translateX(-75) translateZ(75px);
+    transform: translateX(-75) translateZ(75px);
+  }
+  75% {
+    -moz-transform: translateX(-187.5px) translateZ(37.5px);
+    -ms-transform: translateX(-187.5px) translateZ(37.5px);
+    transform: translateX(-187.5px) translateZ(37.5px);
+  }
+  100% {
+    -moz-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes opencard3 {
+  25% {
+    -moz-transform: translateX(0px) rotateY(90deg) translateZ(150px);
+    -ms-transform: translateX(0px) rotateY(90deg) translateZ(150px);
+    transform: translateX(0px) rotateY(90deg) translateZ(150px);
+  }
+  50% {
+    -moz-transform: translateX(110px) rotateY(90deg) translateZ(0px);
+    -ms-transform: translateX(110px) rotateY(90deg) translateZ(0px);
+    transform: translateX(110px) rotateY(90deg) translateZ(0px);
+  }
+  75% {
+    -moz-transform: translateX(125px) translateZ(37.5px);
+    -ms-transform: translateX(125px) translateZ(37.5px);
+    transform: translateX(125px) translateZ(37.5px);
+  }
+  100% {
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@keyframes opencard4 {
+  25% {
+    -moz-transform: translateX(0px) rotateY(-180deg) translateZ(112.5px);
+    -ms-transform: translateX(0px) rotateY(-180deg) translateZ(112.5px);
+    transform: translateX(0px) rotateY(-180deg) translateZ(112.5px);
+  }
+  50% {
+    -moz-transform: translateX(-50px) rotateY(-180deg) translateZ(112.5px);
+    -ms-transform: translateX(-50px) rotateY(-180deg) translateZ(112.5px);
+    transform: translateX(-50px) rotateY(-180deg) translateZ(112.5px);
+  }
+  75% {
+    -moz-transform: translateX(220px) rotateY(-270deg) translateZ(37.5px);
+    -ms-transform: translateX(220px) rotateY(-270deg) translateZ(37.5px);
+    transform: translateX(220px) rotateY(-270deg) translateZ(37.5px);
+  }
+  100% {
+    -moz-transform: translateX(300px) rotateY(-360deg);
+    -ms-transform: translateX(300px) rotateY(-360deg);
+    transform: translateX(300px) rotateY(-360deg);
+  }
+}
+
+.open-card1 {
+  -webkit-animation-name: opencard1;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: initial;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: opencard1;
+  animation-timing-function: linear;
+  animation-iteration-count: initial;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.open-card2 {
+  -webkit-animation-name: opencard2;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: initial;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: opencard2;
+  animation-timing-function: linear;
+  animation-iteration-count: initial;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.open-card3 {
+  -webkit-animation-name: opencard3;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: initial;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: opencard3;
+  animation-timing-function: linear;
+  animation-iteration-count: initial;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.open-card4 {
+  -webkit-animation-name: opencard4;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: initial;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: opencard4;
+  animation-timing-function: linear;
+  animation-iteration-count: initial;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
 @-webkit-keyframes spincube {
   0% {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -369,9 +600,6 @@ label::after {
   }
 }
 @keyframes spincube2 {
-  0% {
-    transform: matrix3d(-0.859491, 0, -0.511151, 0, 0, 1, 0, 0, 0.511151, 0, -0.859491, 0, 0, 0, 0, 1);
-  }
   100% {
     -moz-transform: rotateY(-360deg);
     -ms-transform: rotateY(-360deg);
@@ -382,7 +610,7 @@ label::after {
   -webkit-animation-name: spincube;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 12s;
 
   animation-name: spincube;
   animation-timing-function: ease-in-out;
@@ -547,4 +775,13 @@ label::after {
   text-align: center;
   padding-top: 5px;
   transition-duration: 0.4s;
+}
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+  }
 }

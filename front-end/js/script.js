@@ -238,28 +238,68 @@ function findKeyframesRule(rule) {
 var keyFrames = findKeyframesRule("spincube2");
 //on hover over spinning cube every card falls back to its original place
 var spinCube = document.getElementsByClassName("cube-spin")[0];
+var cardContainer = document.getElementsByClassName("experience-card-container")[0];
 var hoverCounter = 0;
-spinCube.onmouseover = () => {
-  hoverCounter === 0 && (stopSpin(), hoverCounter++);
-};
-spinCube.onmouseleave = () => {
-  startSpin();
-  hoverCounter = 0;
-};
+console.log(window.innerWidth);
+if (window.innerWidth > 1300) {
+  cardContainer.onmouseover = () => {
+    hoverCounter === 0 && (stopSpin(), cubeOpen(), hoverCounter++);
+  };
+  cardContainer.onmouseleave = () => {
+    startSpin();
+    cubeClose();
+    hoverCounter = 0;
+  };
+}
 
 var stopSpin = () => {
   var currentPosition = window.getComputedStyle(spinCube).transform;
-  console.log(`0%{transform:${currentPosition}}`);
   // keyFrames.cssRules[0].cssText = `0%{transform:${currentPosition}}`;
-  keyFrames.deleteRule("0%");
+  keyFrames.appendRule(`0%{
+    transform:${currentPosition};
+    -moz-transform:${currentPosition};
+    -ms-transform:${currentPosition}
 
-  console.log(keyFrames.type);
+  }`);
   spinCube.style.animationName = "spincube2";
-  spinCube.style.animationDuration = "1s";
+  spinCube.style.animationDuration = ".5s";
   spinCube.style.animationIterationCount = "initial";
 };
 var startSpin = () => {
-  spinCube.style.animationName = "spincube";
-  spinCube.style.animationDuration = "12s";
-  spinCube.style.animationIterationCount = "infinite";
+  setTimeout(() => {
+    spinCube.style.animationName = "spincube";
+    spinCube.style.animationDuration = "12s";
+    spinCube.style.animationIterationCount = "infinite";
+  }, 1000);
+};
+var cubeOpen = () => {
+  var cardList = document.querySelectorAll(".experience-card");
+  // var currentPosition = [];
+  cardList.forEach((elem, index) => {
+    // console.log(elem.classList);
+    // currentPosition.push(window.getComputedStyle(elem).transform);
+    setTimeout(() => {
+      elem.classList.remove(`open-card${index + 1}`);
+      void elem.offsetWidth;
+      elem.classList.add(`open-card${index + 1}`);
+      elem.style.animationDirection = "normal";
+    }, 500);
+  });
+};
+var cubeClose = () => {
+  var cardList = document.querySelectorAll(".experience-card");
+  cardList.forEach((elem, index) => {
+    var currentPosition = window.getComputedStyle(elem).transform;
+    var keyFrames1 = findKeyframesRule(`opencard${index + 1}`);
+    keyFrames1.deleteRule("100%");
+    keyFrames1.appendRule(`100%{
+    transform:${currentPosition};
+    -moz-transform:${currentPosition};
+    -ms-transform:${currentPosition}
+  }`);
+    elem.classList.remove(`open-card${index + 1}`);
+    void elem.offsetWidth;
+    elem.classList.add(`open-card${index + 1}`);
+    elem.style.animationDirection = "reverse";
+  });
 };
