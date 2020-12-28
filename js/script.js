@@ -98,26 +98,6 @@ function hireMe() {
 //     })
 // }
 
-// ripples effect
-// $(document).ready(function() {
-// 	try {
-// 		$('body').ripples({
-// 			resolution: 600,
-// 			dropRadius: 10, //px
-// 			perturbance: 0.09,
-// 		});
-// 		$('main').ripples({
-// 			resolution: 514,
-// 			dropRadius: 10, //px
-// 			perturbance: 0.04,
-// 			interactive: true
-// 		});
-// 	}
-// 	catch (e) {
-// 		$('.error').show().text(e);
-//     }
-// })
-
 // particles effect
 particlesJS.load("particles-js", "assets/particles.json", function () {
   console.log("callback - particles.js config loaded");
@@ -188,13 +168,20 @@ var incrementIcon = (elem) => {
   }, 600 / x1);
 };
 
+//for the fadein effect
+var fadeInBottom = (elem) => {
+  elem.classList.remove("fade-in-bottom");
+  void elem.offsetWidth;
+  elem.classList.add("fade-in-bottom");
+};
+
 //to spin the card on scroll into view
 // var spinCard = (elem) => {
 //   elem.classList.add("card-spin");
 // };
 
 //to execute all function on scroll when they appear on screen
-(arr3 = []).length = 11;
+(arr3 = []).length = 15;
 arr3.fill(0);
 window.onscroll = () => {
   var currentScroll = document.documentElement.scrollTop + window.innerHeight;
@@ -215,12 +202,19 @@ window.onscroll = () => {
     currentScroll > elem.offsetTop && arr3[index + 3] === 0 && (incrementIcon(elem), arr3[index + 3]++);
     currentScroll < elem.offsetTop && (arr3[index + 3] = 0);
   });
-  // var cardList = document.querySelectorAll(".experience-card");
-  // cardList.forEach((elem, index) => {
-  //   var elemOffsetTop = window.pageYOffset + elem.getBoundingClientRect().top;
-  //   currentScroll > elemOffsetTop && arr3[index + 7] === 0 && (elem.classList.add("card-spin"), arr3[index + 7]++);
-  //   currentScroll < elemOffsetTop && (elem.classList.remove("card-spin"), (arr3[index + 7] = 0));
-  // });
+  var educationList = document.querySelectorAll(".education-cluster");
+  educationList.forEach((elem, index) => {
+    currentScroll > elem.offsetTop && arr3[index + 7] === 0 && (fadeInBottom(elem), arr3[index + 7]++);
+    currentScroll < elem.offsetTop && (arr3[index + 7] = 0);
+  });
+
+  //adding the fade-in effect for all page titles!!!
+  var titleList = [".about", ".education", ".experience", ".contact"];
+  titleList.forEach((elem, index) => {
+    var title = document.querySelector(elem).querySelector("h1");
+    currentScroll > title.offsetTop && arr3[index + 12] === 0 && (fadeInBottom(title), arr3[index + 12]++);
+    currentScroll < title.offsetTop && (arr3[index + 12] = 0);
+  });
 };
 
 function findKeyframesRule(rule) {
@@ -240,7 +234,6 @@ var keyFrames = findKeyframesRule("spincube2");
 var spinCube = document.getElementsByClassName("cube-spin")[0];
 var cardContainer = document.getElementsByClassName("experience-card-container")[0];
 var hoverCounter = 0;
-console.log(window.innerWidth);
 if (window.innerWidth > 1300) {
   cardContainer.onmouseover = () => {
     hoverCounter === 0 && (stopSpin(), cubeOpen(), hoverCounter++);
