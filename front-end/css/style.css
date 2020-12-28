@@ -274,9 +274,6 @@ label::after {
 .education-cluster {
   display: flex;
   margin-top: 20px;
-  animation-name: fadeInBottom;
-  animation-duration: 1s;
-  animation-fill-mode: both;
 }
 
 .education-cluster p {
@@ -784,4 +781,9 @@ label::after {
   to {
     opacity: 1;
   }
+}
+.fade-in-bottom {
+  animation-name: fadeInBottom;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
