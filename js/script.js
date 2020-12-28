@@ -245,6 +245,7 @@ if (window.innerWidth > 1300) {
   };
 }
 
+//this method stops the spin on hover so cubeOpen method can kick-in
 var stopSpin = () => {
   var currentPosition = window.getComputedStyle(spinCube).transform;
   // keyFrames.cssRules[0].cssText = `0%{transform:${currentPosition}}`;
@@ -258,6 +259,8 @@ var stopSpin = () => {
   spinCube.style.animationDuration = ".5s";
   spinCube.style.animationIterationCount = "initial";
 };
+
+//this mehtod restarts the spin of the cube after cube is closed
 var startSpin = () => {
   setTimeout(() => {
     spinCube.style.animationName = "spincube";
@@ -265,12 +268,11 @@ var startSpin = () => {
     spinCube.style.animationIterationCount = "infinite";
   }, 1000);
 };
+
+//this method opens the cube made with the experience cards
 var cubeOpen = () => {
   var cardList = document.querySelectorAll(".experience-card");
-  // var currentPosition = [];
   cardList.forEach((elem, index) => {
-    // console.log(elem.classList);
-    // currentPosition.push(window.getComputedStyle(elem).transform);
     setTimeout(() => {
       elem.classList.remove(`open-card${index + 1}`);
       void elem.offsetWidth;
@@ -279,6 +281,7 @@ var cubeOpen = () => {
     }, 500);
   });
 };
+//this method does closes the opened faces of the cube
 var cubeClose = () => {
   var cardList = document.querySelectorAll(".experience-card");
   cardList.forEach((elem, index) => {
@@ -295,4 +298,15 @@ var cubeClose = () => {
     elem.classList.add(`open-card${index + 1}`);
     elem.style.animationDirection = "reverse";
   });
+};
+
+//this method send the mail using the data provided by user...
+var sendMail = () => {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var subject = document.getElementById("subject").value;
+  var message = document.getElementById("message").value;
+  if (name === "") {
+    var x = document.getElementsByClassName("tooltiptext")[0];
+  }
 };

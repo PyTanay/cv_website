@@ -229,16 +229,19 @@
         </div>
         <div class="contact" id="contact">
             <h1>Contact</h1>
-            <div class="contact-container">
-                <div class="name-email">
-                    <div><input type="text" placeholder="Your Name" id="name"></div>
-                    <div><input type="text" placeholder="Email address" id="email"></div>
-                </div>
-                <input type="text" placeholder="Subject" id="subject">
-                <textarea rows="8" cols="30" placeholder="Message"></textarea>
-                <button>Submit</button>
-            </div>
+            <form onsubmit="sendMail()">
+                <div class="contact-container">
+                    <div class="name-email">
+                        <div class="tooltip"><span class="tooltiptext">Tooltip text</span><input type="text" placeholder="Your Name"
+                                id="name"></div>
+                        <div><input type="text" placeholder="Email address" id="email"></div>
+                    </div>
+                    <input type="text" placeholder="Subject" id="subject">
+                    <textarea rows="8" cols="30" id="message" placeholder="Message"></textarea>
+                    <button type="submit">Submit</button>
+            </form>
         </div>
+    </div>
     </div>
 </body>
 
