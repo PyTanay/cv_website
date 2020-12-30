@@ -10,6 +10,8 @@
     <script defer src="./fa/js/all.js"></script>
     <script defer src="./js/script.js"></script>
     <script src="./particles.js/particles.js"></script>
+    <script type="text/javascript" src="./js/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <title>Tanay-CV</title>
 </head>
 
@@ -42,7 +44,7 @@
         </p>
         <div class="home-buttons">
             <button onclick="hireMe()">Hire Me</button>
-            <button>Download CV</button>
+            <button id="download">Download CV</button>
         </div>
         <div class="scroll-down">
             <a href="#about">
@@ -65,7 +67,7 @@
                             stack
                             developer.
                         </p>
-                        <button>Download CV</button>
+                        <button id="download">Download CV</button>
                     </div>
                     <div class="about-sub-2">
                         <div class="about-sub-3">
@@ -229,15 +231,21 @@
         </div>
         <div class="contact" id="contact">
             <h1>Contact</h1>
+            <div class="pop-up" id="email-sent">
+                <div class="pop-up-text"> Your email was sent successfully. I will contact you soon.</div>
+                <div class="pop-up-close" onclick="closePopUp()"><i class="fas fa-times"></i></div>
+            </div>
             <form onsubmit="sendMail()">
                 <div class="contact-container">
                     <div class="name-email">
-                        <div class="tooltip"><span class="tooltiptext">Tooltip text</span><input type="text" placeholder="Your Name"
-                                id="name"></div>
-                        <div><input type="text" placeholder="Email address" id="email"></div>
+                        <div class="tooltip"><span class="tooltiptext">Please Enter Your Name</span><input type="text"
+                                placeholder="Your Name" id="name"></div>
+                        <div class="tooltip"><span class="tooltiptext">Please Enter Your Email</span><input type="text"
+                                placeholder="Email address" id="email"></div>
                     </div>
                     <input type="text" placeholder="Subject" id="subject">
-                    <textarea rows="8" cols="30" id="message" placeholder="Message"></textarea>
+                    <div class="tooltip"><span class="tooltiptext">Please Enter Message</span><textarea rows="8" id="message"
+                            placeholder="Message"></textarea></div>
                     <button type="submit">Submit</button>
             </form>
         </div>

@@ -666,7 +666,7 @@ label::after {
 .contact {
   padding-top: 10px;
   margin-left: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .contact h1 {
   text-align: left;
@@ -690,10 +690,18 @@ label::after {
   border-radius: 25px;
   margin-bottom: 20px;
   font-size: 17px;
+  color: white;
   background-color: rgba(255, 255, 255, 0.233);
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+}
 .contact-container textarea {
-  width: auto;
+  width: 100%;
   max-width: 600px;
   height: 150px;
   border: none;
@@ -795,14 +803,13 @@ label::after {
 /* tooltip for the form */
 .tooltip {
   position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  /* display: inline-block; If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 200px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -812,9 +819,10 @@ label::after {
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
+  bottom: 110%;
+  left: 0%;
+  margin-left: auto;
+  margin-right: auto;
 
   /* Fade in tooltip */
   opacity: 0;
@@ -831,4 +839,40 @@ label::after {
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
+}
+
+/* pop-up to show the email sent notification... */
+.pop-up {
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 1s;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 50%;
+  /* display: fl`; */
+  color: rgb(16, 71, 16);
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  padding: 5px;
+  margin: auto;
+  border: 3px rgb(16, 71, 16) solid;
+  border-radius: 9px;
+  background-color: rgba(87, 218, 11, 0.5);
+  transform: translate(-50%);
+  z-index: 1000;
+}
+.pop-up .pop-up-text {
+  float: left;
+  width: 90%;
+}
+.pop-up .pop-up-close {
+  float: right;
+  text-decoration: none;
+  color: rgb(16, 71, 16);
+  vertical-align: top;
+}
+.pop-up .pop-up-close:hover {
+  cursor: pointer;
 }

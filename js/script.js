@@ -127,7 +127,6 @@ cardList.forEach((element) => {
 
 document.querySelector(".nav-button").addEventListener("click", navClick);
 var toggleState = true;
-console.log(document.querySelector(".navbar"));
 function navClick() {
   if (toggleState === true) {
     document.querySelector(".navbar").style.left = 0;
@@ -239,6 +238,7 @@ if (window.innerWidth > 1300) {
     hoverCounter === 0 && (stopSpin(), cubeOpen(), hoverCounter++);
   };
   cardContainer.onmouseleave = () => {
+    console.log(document.querySelector(".card-1").style.animationPlayState);
     startSpin();
     cubeClose();
     hoverCounter = 0;
@@ -302,11 +302,71 @@ var cubeClose = () => {
 
 //this method send the mail using the data provided by user...
 var sendMail = () => {
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
+  event.preventDefault();
+  var from_name = document.getElementById("name").value;
+  var reply_to = document.getElementById("email").value;
   var subject = document.getElementById("subject").value;
   var message = document.getElementById("message").value;
-  if (name === "") {
-    var x = document.getElementsByClassName("tooltiptext")[0];
+
+  //to show the tooltip if one of the field is left empty
+  var tempArr = [from_name, reply_to, message];
+  tempArr.forEach((elem, i) => {
+    if (elem === "") {
+      var x = document.getElementsByClassName("tooltiptext")[i];
+      x.style.visibility = "visible";
+      x.style.opacity = "1";
+      setTimeout(() => {
+        x.style.opacity = "0";
+      }, 3000);
+      setTimeout(() => {
+        x.style.visibility = "hidden";
+      }, 3300);
+    }
+  });
+
+  //to submit  the actual data and send mail
+  emailjs.init("user_qAekdPkUAYhQzaqcOgOmu");
+  if (from_name !== "" && reply_to !== "" && message !== "") {
+    var obj1 = { from_name, reply_to, message, subject };
+    document.getElementsByTagName("form")[0].querySelector("button").innerText = "Sending...";
+    emailjs
+      .send("service_jjxtvl8", "template_ysum0ap", obj1)
+      .then(() => {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("message").value = "";
+        document.getElementsByTagName("form")[0].querySelector("button").innerText = "Submit";
+        document.querySelector("#email-sent").style.visibility = "visible";
+        document.querySelector("#email-sent").style.opacity = 1;
+        setTimeout(() => {
+          document.querySelector("#email-sent").style.opacity = 0;
+        }, 3000);
+        setTimeout(() => {
+          document.querySelector("#email-sent").style.visibility = "hidden";
+        }, 4000);
+      })
+      .catch((err) => {
+        console.log(JSON.stringify(err));
+      });
   }
 };
+
+//close the popup on button click
+document.querySelector(".pop-up-close").onclick = closePopUp;
+function closePopUp() {
+  console.log("button clicked");
+  var popup = document.querySelector("#email-sent");
+  popup.style.opacity = 0;
+  setTimeout(() => {
+    popup.style.visibility = "hidden";
+  }, 1000);
+}
+// window.open("./assets/Tanay_resume_2020.pdf", "_blank");
+//download resume button
+var downloadBtnList = document.querySelectorAll("#download");
+downloadBtnList.forEach((elem) => {
+  elem.onclick = () => {
+    window.open("./assets/Tanay_resume_2020.pdf", "_blank");
+  };
+});
