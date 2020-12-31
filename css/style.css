@@ -876,3 +876,27 @@ input:-webkit-autofill:active {
 .pop-up .pop-up-close:hover {
   cursor: pointer;
 }
+
+.card-btn {
+  position: relative;
+  float: bottom;
+  vertical-align: bottom;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(59, 59, 59);
+  padding: 7px;
+  font-size: 15px;
+  color: white;
+  border: 3px rgba(128, 128, 128, 0) solid;
+  transition-duration: 0.3s;
+  /* font-weight: bold; */
+}
+.card-btn:hover {
+  cursor: pointer;
+  background-color: rgb(41, 41, 41);
+}
+.card-btn:focus {
+  border-color: grey;
+  /* bottom: -12px; */
+  outline: none;
+}

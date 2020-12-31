@@ -161,7 +161,15 @@ var incrementIcon = (elem) => {
   var x1 = elem.getElementsByTagName("h1")[0].getAttribute("data-value");
   var y = 0;
   var interval1 = setInterval(() => {
-    elem.getElementsByTagName("h1")[0].innerText = y;
+    var prefix = "";
+    if (
+      elem.getElementsByTagName("p")[0].innerText === "Process Modifications" ||
+      elem.getElementsByTagName("p")[0].innerText === "Datasheets Prepared"
+    ) {
+      prefix = ">";
+    }
+    elem.getElementsByTagName("h1")[0].innerText = prefix + y;
+    console.log(elem.getElementsByTagName("p")[0].innerText);
     y++;
     if (y > x1) clearInterval(interval1);
   }, 600 / x1);
@@ -180,7 +188,7 @@ var fadeInBottom = (elem) => {
 // };
 
 //to execute all function on scroll when they appear on screen
-(arr3 = []).length = 15;
+(arr3 = []).length = 16;
 arr3.fill(0);
 window.onscroll = () => {
   var currentScroll = document.documentElement.scrollTop + window.innerHeight;
@@ -198,21 +206,21 @@ window.onscroll = () => {
   });
   var iconList = document.querySelectorAll(".about-icon-group");
   iconList.forEach((elem, index) => {
-    currentScroll > elem.offsetTop && arr3[index + 3] === 0 && (incrementIcon(elem), arr3[index + 3]++);
-    currentScroll < elem.offsetTop && (arr3[index + 3] = 0);
+    currentScroll > elem.offsetTop && arr3[index + 4] === 0 && (incrementIcon(elem), arr3[index + 4]++);
+    currentScroll < elem.offsetTop && (arr3[index + 4] = 0);
   });
   var educationList = document.querySelectorAll(".education-cluster");
   educationList.forEach((elem, index) => {
-    currentScroll > elem.offsetTop && arr3[index + 7] === 0 && (fadeInBottom(elem), arr3[index + 7]++);
-    currentScroll < elem.offsetTop && (arr3[index + 7] = 0);
+    currentScroll > elem.offsetTop && arr3[index + 8] === 0 && (fadeInBottom(elem), arr3[index + 8]++);
+    currentScroll < elem.offsetTop && (arr3[index + 8] = 0);
   });
 
   //adding the fade-in effect for all page titles!!!
   var titleList = [".about", ".education", ".experience", ".contact"];
   titleList.forEach((elem, index) => {
     var title = document.querySelector(elem).querySelector("h1");
-    currentScroll > title.offsetTop && arr3[index + 12] === 0 && (fadeInBottom(title), arr3[index + 12]++);
-    currentScroll < title.offsetTop && (arr3[index + 12] = 0);
+    currentScroll > title.offsetTop && arr3[index + 13] === 0 && (fadeInBottom(title), arr3[index + 13]++);
+    currentScroll < title.offsetTop && (arr3[index + 13] = 0);
   });
 };
 
