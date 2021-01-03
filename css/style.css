@@ -659,6 +659,7 @@ label::after {
 }
 .experience-card p {
   font-size: 14px;
+  margin-bottom: 0px;
 }
 .experience-card:hover {
   cursor: pointer;
@@ -771,6 +772,15 @@ input:-webkit-autofill:active {
   .nav-button {
     visibility: unset !important;
   }
+  .project-cluster {
+    margin: 10px;
+  }
+  .project-cluster h1 {
+    font-size: 15px;
+  }
+  .project-cluster p {
+    font-size: 10px;
+  }
 }
 .nav-button {
   visibility: hidden;
@@ -878,25 +888,121 @@ input:-webkit-autofill:active {
 }
 
 .card-btn {
-  position: relative;
-  float: bottom;
-  vertical-align: bottom;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
   border: none;
-  background-color: rgb(59, 59, 59);
+  background-color: rgba(59, 59, 59, 0);
   padding: 7px;
   font-size: 15px;
-  color: white;
-  border: 3px rgba(128, 128, 128, 0) solid;
+  color: rgb(59, 59, 59);
+  border: 3px rgb(59, 59, 59) solid;
   transition-duration: 0.3s;
   /* font-weight: bold; */
 }
 .card-btn:hover {
   cursor: pointer;
-  background-color: rgb(41, 41, 41);
+  color: white;
+  background-color: rgb(59, 59, 59);
 }
 .card-btn:focus {
   border-color: grey;
   /* bottom: -12px; */
   outline: none;
+}
+.card-1-popup {
+  background-color: rgba(31, 31, 31, 0.918);
+  color: black;
+  border-radius: 10px;
+  position: fixed;
+  margin: 0;
+  top: 10px;
+  left: 0px;
+  height: 85vh;
+  z-index: 100;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(100%);
+  visibility: hidden;
+  z-index: 100;
+  padding-top: 20px;
+  /* border: grey 3px solid; */
+  margin: 50px;
+  overflow: auto;
+}
+.card-1-popup h1,
+.card-1-popup p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: white;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+.project-cluster {
+  border: 2px grey solid;
+  color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.project-cluster:hover {
+  background-color: rgb(214, 214, 214);
+  border: 2px rgba(128, 128, 128, 0) solid;
+}
+/* .project-cluster:hover .card-1-popup h1, */
+.project-cluster:hover h1,
+.project-cluster:hover p {
+  color: #112235;
+}
+.layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: clip-path 0.3s ease-in-out;
+  clip-path: inset(0% 100% 0% 0%);
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.507);
+}
+.close-button {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 20px;
+  line-height: 15px;
+  text-align: center;
+  color: rgb(238, 73, 73);
+  border: 2px rgb(238, 73, 73) solid;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+}
+.close-button:hover {
+  background-color: rgb(238, 73, 73);
+  color: white;
+  cursor: pointer;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(77, 77, 77, 0.644);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

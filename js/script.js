@@ -169,7 +169,6 @@ var incrementIcon = (elem) => {
       prefix = ">";
     }
     elem.getElementsByTagName("h1")[0].innerText = prefix + y;
-    console.log(elem.getElementsByTagName("p")[0].innerText);
     y++;
     if (y > x1) clearInterval(interval1);
   }, 600 / x1);
@@ -378,3 +377,24 @@ downloadBtnList.forEach((elem) => {
     window.open("./assets/Tanay_resume_2020.pdf", "_blank");
   };
 });
+
+//on button click close the pop-up
+var closeButton = document.querySelector(".card-1-popup").querySelector(".close-button");
+closeButton.onclick = closePopup1;
+function closePopup1() {
+  closeButton.parentElement.style.opacity = "0";
+  closeButton.parentElement.style.transform = "translateY(100%)";
+  closeButton.parentElement.style.visibility = "hidden";
+  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
+}
+
+var card1Popup = document.querySelector(".card-1");
+card1Popup.querySelector("button").onclick = openPopup1;
+function openPopup1() {
+  closeButton.parentElement.style.opacity = "1";
+  closeButton.parentElement.style.transform = "translateY(0%)";
+  closeButton.parentElement.style.visibility = "visible";
+  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
+}
+
+document.querySelector(".layer").onclick = closePopup1;
