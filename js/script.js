@@ -240,17 +240,26 @@ var keyFrames = findKeyframesRule("spincube2");
 var spinCube = document.getElementsByClassName("cube-spin")[0];
 var cardContainer = document.getElementsByClassName("experience-card-container")[0];
 var hoverCounter = 0;
-if (window.innerWidth > 1300) {
-  cardContainer.onmouseover = () => {
-    hoverCounter === 0 && (stopSpin(), cubeOpen(), hoverCounter++);
-  };
-  cardContainer.onmouseleave = () => {
-    console.log(document.querySelector(".card-1").style.animationPlayState);
+var mouseOn = 0;
+// if (window.innerWidth > 1300) {
+cardContainer.onmouseover = () => {
+  if (hoverCounter === 0) {
+    stopSpin();
+    cubeOpen();
+    hoverCounter++;
+    mouseOn = 1;
+  }
+};
+cardContainer.onmouseleave = () => {
+  if (animState === 0) {
+    console.log("start spin");
     startSpin();
     cubeClose();
-    hoverCounter = 0;
-  };
-}
+  }
+  hoverCounter = 0;
+  mouseOn = 0;
+};
+// }
 
 //this method stops the spin on hover so cubeOpen method can kick-in
 var stopSpin = () => {
@@ -269,23 +278,23 @@ var stopSpin = () => {
 
 //this mehtod restarts the spin of the cube after cube is closed
 var startSpin = () => {
-  setTimeout(() => {
-    spinCube.style.animationName = "spincube";
-    spinCube.style.animationDuration = "12s";
-    spinCube.style.animationIterationCount = "infinite";
-  }, 1000);
+  // setTimeout(() => {
+  spinCube.style.animationName = "spincube";
+  spinCube.style.animationDuration = "12s";
+  spinCube.style.animationIterationCount = "infinite";
+  // }, 1000);
 };
 
 //this method opens the cube made with the experience cards
 var cubeOpen = () => {
   var cardList = document.querySelectorAll(".experience-card");
   cardList.forEach((elem, index) => {
-    setTimeout(() => {
-      elem.classList.remove(`open-card${index + 1}`);
-      void elem.offsetWidth;
-      elem.classList.add(`open-card${index + 1}`);
-      elem.style.animationDirection = "normal";
-    }, 500);
+    // setTimeout(() => {
+    elem.classList.remove(`open-card${index + 1}`);
+    void elem.offsetWidth;
+    elem.classList.add(`open-card${index + 1}`);
+    elem.style.animationDirection = "normal";
+    // }, 500);
   });
 };
 //this method does closes the opened faces of the cube
@@ -306,6 +315,27 @@ var cubeClose = () => {
     elem.style.animationDirection = "reverse";
   });
 };
+
+//this code is to set the cube animation state so that that state can be used further in open / close cube methods to prevent glitches
+var animState = 0;
+document.querySelector(".experience-card").addEventListener("animationend", () => {
+  animState = 0;
+  if (document.querySelector(".experience-card").style.animationDirection === "normal") {
+    if (mouseOn === 0) {
+      cubeClose();
+      startSpin();
+    }
+  }
+});
+document.querySelector(".experience-card").addEventListener("animationstart", () => {
+  if (document.querySelector(".experience-card").style.animationDirection === "normal") {
+    animState = 1;
+  } else if (document.querySelector(".experience-card").style.animationDirection === "reverse") {
+    animState = -1;
+  } else {
+    animState = 0;
+  }
+});
 
 //this method send the mail using the data provided by user...
 var sendMail = () => {

@@ -320,9 +320,15 @@ label::after {
 }
 .experience-card-container {
   display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
   justify-content: center;
   height: 350px;
-  margin-top: 80px;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-top: 80px;
   -webkit-perspective: 1200px;
   -moz-perspective: 1200px;
   -ms-perspective: 1200px;
@@ -957,6 +963,14 @@ input:-webkit-autofill:active {
 .project-cluster:hover h1,
 .project-cluster:hover p {
   color: #112235;
+}
+.line {
+  width: 100%;
+  height: 3px;
+  color: #112235;
+  background-color: grey;
+  margin: 0;
+  padding: 0;
 }
 .layer {
   position: fixed;
