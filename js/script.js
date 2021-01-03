@@ -408,6 +408,13 @@ downloadBtnList.forEach((elem) => {
   };
 });
 
+//random colors for  popup
+var background = document.querySelectorAll(".background");
+background.forEach((elem, index) => {
+  var random_color = colorList[Math.floor(Math.random() * colorList.length)];
+  elem.style.backgroundColor = random_color;
+});
+
 //on button click close the pop-up
 var closeButton = document.querySelector(".card-1-popup").querySelector(".close-button");
 closeButton.onclick = closePopup1;
@@ -423,4 +430,36 @@ function openPopup1() {
   document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
 }
 
-document.querySelector(".layer").onclick = closePopup1;
+document.querySelector(".layer").onclick = () => {
+  closePopup3();
+  closePopup1();
+  closePopup4();
+};
+
+var closeButton3 = document.querySelectorAll(".card-1-popup")[1].querySelector(".close-button");
+closeButton3.onclick = closePopup3;
+function closePopup3() {
+  closeButton3.parentElement.style.clipPath = "circle(0% at 95% 5%)";
+  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
+}
+
+var card3Popup = document.querySelector(".card-3");
+card3Popup.querySelector("button").onclick = openPopup3;
+function openPopup3() {
+  closeButton3.parentElement.style.clipPath = "circle(150% at 95% 5%)";
+  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
+}
+
+var closeButton4 = document.querySelectorAll(".card-1-popup")[2].querySelector(".close-button");
+closeButton4.onclick = closePopup4;
+function closePopup4() {
+  closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
+  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
+}
+
+var card4Popup = document.querySelector(".card-4");
+card4Popup.querySelector("button").onclick = openPopup4;
+function openPopup4() {
+  closeButton4.parentElement.style.clipPath = "circle(150% at 95% 5%)";
+  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
+}

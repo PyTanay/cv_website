@@ -923,7 +923,6 @@ input:-webkit-autofill:active {
   color: black;
   border-radius: 10px;
   position: fixed;
-  margin: 0;
   top: 10px;
   left: 0px;
   height: 85vh;
@@ -933,43 +932,42 @@ input:-webkit-autofill:active {
   transition: clip-path 0.7s ease-in-out;
   clip-path: circle(0% at 95% 5%);
   z-index: 100;
+  /* padding: 20px; */
   padding-top: 20px;
   margin: 50px;
   overflow: auto;
 }
 .card-1-popup h1,
 .card-1-popup p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  /* margin-top: 5px;
+  margin-bottom: 5px; */
+  padding: 5px;
+  margin: 0;
   color: white;
   text-align: left;
   transition: all 0.3s ease-in-out;
 }
+.card-1-popup h1 {
+  font-size: 20px;
+}
 .project-cluster {
-  border: 2px rgba(128, 128, 128, 0) solid;
-  background-color: rgb(12, 12, 12);
+  /* border: 2px rgba(128, 128, 128, 0) solid; */
+  background-color: rgb(73, 73, 73);
   color: white;
   border-radius: 10px;
   margin: 20px;
-  padding: 10px;
+  /* padding: 10px; */
+  position: relative;
   transition: all 0.3s ease-in-out;
 }
 .project-cluster:hover {
   background-color: rgb(214, 214, 214);
-  border: 2px rgba(128, 128, 128, 0) solid;
+  /* border: 2px rgba(128, 128, 128, 0) solid; */
 }
 /* .project-cluster:hover .card-1-popup h1, */
 .project-cluster:hover h1,
 .project-cluster:hover p {
   color: #112235;
-}
-.line {
-  width: 100%;
-  height: 3px;
-  color: #112235;
-  background-color: grey;
-  margin: 0;
-  padding: 0;
 }
 .layer {
   position: fixed;
@@ -999,6 +997,19 @@ input:-webkit-autofill:active {
   color: white;
   cursor: pointer;
 }
+
+.background {
+  width: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  top: 0px;
+  left: 0px;
+}
+
+/* scrollbar formatting */
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
