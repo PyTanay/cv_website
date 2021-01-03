@@ -325,9 +325,6 @@ label::after {
   left: 0;
   justify-content: center;
   height: 350px;
-  width: 100%;
-  overflow-y: hidden;
-  overflow-x: auto;
   padding-top: 80px;
   -webkit-perspective: 1200px;
   -moz-perspective: 1200px;
@@ -905,8 +902,8 @@ input:-webkit-autofill:active {
   background-color: rgba(59, 59, 59, 0);
   padding: 7px;
   font-size: 15px;
-  color: rgb(59, 59, 59);
-  border: 3px rgb(59, 59, 59) solid;
+  color: rgb(124, 124, 124);
+  border: 3px rgb(124, 124, 124) solid;
   transition-duration: 0.3s;
   /* font-weight: bold; */
 }
@@ -914,6 +911,7 @@ input:-webkit-autofill:active {
   cursor: pointer;
   color: white;
   background-color: rgb(59, 59, 59);
+  border: 3px rgb(59, 59, 59) solid;
 }
 .card-btn:focus {
   border-color: grey;
@@ -931,11 +929,11 @@ input:-webkit-autofill:active {
   height: 85vh;
   z-index: 100;
   transition: all 0.5s ease-in-out;
-  transform: translateY(100%);
-  visibility: hidden;
+  transform: translateY(0%);
+  transition: clip-path 0.7s ease-in-out;
+  clip-path: circle(0% at 95% 5%);
   z-index: 100;
   padding-top: 20px;
-  /* border: grey 3px solid; */
   margin: 50px;
   overflow: auto;
 }
@@ -948,7 +946,8 @@ input:-webkit-autofill:active {
   transition: all 0.3s ease-in-out;
 }
 .project-cluster {
-  border: 2px grey solid;
+  border: 2px rgba(128, 128, 128, 0) solid;
+  background-color: rgb(12, 12, 12);
   color: white;
   border-radius: 10px;
   margin: 20px;

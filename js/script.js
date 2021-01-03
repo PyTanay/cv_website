@@ -241,25 +241,25 @@ var spinCube = document.getElementsByClassName("cube-spin")[0];
 var cardContainer = document.getElementsByClassName("experience-card-container")[0];
 var hoverCounter = 0;
 var mouseOn = 0;
-// if (window.innerWidth > 1300) {
-cardContainer.onmouseover = () => {
-  if (hoverCounter === 0) {
-    stopSpin();
-    cubeOpen();
-    hoverCounter++;
-    mouseOn = 1;
-  }
-};
-cardContainer.onmouseleave = () => {
-  if (animState === 0) {
-    console.log("start spin");
-    startSpin();
-    cubeClose();
-  }
-  hoverCounter = 0;
-  mouseOn = 0;
-};
-// }
+if (window.innerWidth > 1300) {
+  cardContainer.onmouseover = () => {
+    if (hoverCounter === 0) {
+      stopSpin();
+      cubeOpen();
+      hoverCounter++;
+      mouseOn = 1;
+    }
+  };
+  cardContainer.onmouseleave = () => {
+    if (animState === 0) {
+      console.log("start spin");
+      startSpin();
+      cubeClose();
+    }
+    hoverCounter = 0;
+    mouseOn = 0;
+  };
+}
 
 //this method stops the spin on hover so cubeOpen method can kick-in
 var stopSpin = () => {
@@ -412,18 +412,14 @@ downloadBtnList.forEach((elem) => {
 var closeButton = document.querySelector(".card-1-popup").querySelector(".close-button");
 closeButton.onclick = closePopup1;
 function closePopup1() {
-  closeButton.parentElement.style.opacity = "0";
-  closeButton.parentElement.style.transform = "translateY(100%)";
-  closeButton.parentElement.style.visibility = "hidden";
+  closeButton.parentElement.style.clipPath = "circle(0% at 95% 5%)";
   document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
 }
 
 var card1Popup = document.querySelector(".card-1");
 card1Popup.querySelector("button").onclick = openPopup1;
 function openPopup1() {
-  closeButton.parentElement.style.opacity = "1";
-  closeButton.parentElement.style.transform = "translateY(0%)";
-  closeButton.parentElement.style.visibility = "visible";
+  closeButton.parentElement.style.clipPath = "circle(150% at 95% 5%)";
   document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
 }
 
