@@ -777,12 +777,19 @@ input:-webkit-autofill:active {
   }
   .project-cluster {
     margin: 10px;
+    width: auto !important;
   }
   .project-cluster h1 {
     font-size: 15px;
   }
   .project-cluster p {
     font-size: 12px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .project-cluster {
+    margin: 10px;
+    width: auto;
   }
 }
 .nav-button {
@@ -919,7 +926,8 @@ input:-webkit-autofill:active {
   outline: none;
 }
 .card-1-popup {
-  background-color: rgba(31, 31, 31, 0.918);
+  background-color: rgba(218, 218, 218, 0.034);
+  backdrop-filter: blur(4px);
   color: black;
   border-radius: 10px;
   position: fixed;
@@ -939,8 +947,6 @@ input:-webkit-autofill:active {
 }
 .card-1-popup h1,
 .card-1-popup p {
-  /* margin-top: 5px;
-  margin-bottom: 5px; */
   padding: 5px;
   margin: 0;
   color: white;
@@ -952,16 +958,19 @@ input:-webkit-autofill:active {
 }
 .project-cluster {
   /* border: 2px rgba(128, 128, 128, 0) solid; */
-  background-color: rgb(73, 73, 73);
+  background-color: rgba(255, 255, 255, 0.205);
+  backdrop-filter: blur(4px);
   color: white;
   border-radius: 10px;
+  display: inline-block;
+  width: 29%;
   margin: 20px;
-  /* padding: 10px; */
-  position: relative;
+  vertical-align: top;
   transition: all 0.3s ease-in-out;
 }
 .project-cluster:hover {
   background-color: rgb(214, 214, 214);
+  backdrop-filter: blur(8px);
   /* border: 2px rgba(128, 128, 128, 0) solid; */
 }
 /* .project-cluster:hover .card-1-popup h1, */
@@ -975,7 +984,8 @@ input:-webkit-autofill:active {
   left: 0;
   width: 100%;
   height: 100%;
-  transition: clip-path 0.3s ease-in-out;
+  /* opacity: 0; */
+  /* transition: clip-path 0.3s ease-in-out; */
   clip-path: inset(0% 100% 0% 0%);
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.507);
@@ -1001,6 +1011,8 @@ input:-webkit-autofill:active {
 .background {
   width: 100%;
   position: relative;
+  opacity: 0.9;
+  backdrop-filter: blur(8px);
   margin: 0px;
   padding: 0px;
   border-top-left-radius: 10px;

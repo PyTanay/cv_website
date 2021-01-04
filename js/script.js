@@ -455,6 +455,7 @@ closeButton4.onclick = closePopup4;
 function closePopup4() {
   closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
   document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
+  // document.querySelector(".layer").style.opacity = "0";
 }
 
 var card4Popup = document.querySelector(".card-4");
@@ -462,4 +463,5 @@ card4Popup.querySelector("button").onclick = openPopup4;
 function openPopup4() {
   closeButton4.parentElement.style.clipPath = "circle(150% at 95% 5%)";
   document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
+  // document.querySelector(".layer").style.opacity = "1";
 }
