@@ -416,52 +416,44 @@ background.forEach((elem, index) => {
 });
 
 //on button click close the pop-up
-var closeButton = document.querySelector(".card-1-popup").querySelector(".close-button");
-closeButton.onclick = closePopup1;
-function closePopup1() {
-  closeButton.parentElement.style.clipPath = "circle(0% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
-}
-
-var card1Popup = document.querySelector(".card-1");
-card1Popup.querySelector("button").onclick = openPopup1;
-function openPopup1() {
-  closeButton.parentElement.style.clipPath = "circle(150% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
-}
-
 document.querySelector(".layer").onclick = () => {
-  closePopup3();
-  closePopup1();
-  closePopup4();
+  popArr.forEach((elem,index)=>{
+    var closeButton = document.querySelectorAll(".card-1-popup")[index].querySelector(".close-button");
+    closePopup();
+    function closePopup() {
+      // closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
+      document.querySelector(".layer").style.visibility = "hidden";
+      document.querySelector(".layer").style.opacity = "0";
+      document.querySelectorAll(".card-1-popup")[index].style.visibility = "hidden";
+      document.querySelectorAll(".card-1-popup")[index].style.transform = "translateY(20%)";
+      document.querySelectorAll(".card-1-popup")[index].style.opacity = "0";
+    }
+  })
 };
+var popArr=[".card-1",".card-3",".card-4"]
+popArr.forEach((elem,index)=>{
+  var closeButton = document.querySelectorAll(".card-1-popup")[index].querySelector(".close-button");
+  closeButton.onclick = closePopup;
 
-var closeButton3 = document.querySelectorAll(".card-1-popup")[1].querySelector(".close-button");
-closeButton3.onclick = closePopup3;
-function closePopup3() {
-  closeButton3.parentElement.style.clipPath = "circle(0% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
-}
+  var cardPopup = document.querySelector(elem);
+  cardPopup.querySelector(".btn").onclick = openPopup;
 
-var card3Popup = document.querySelector(".card-3");
-card3Popup.querySelector("button").onclick = openPopup3;
-function openPopup3() {
-  closeButton3.parentElement.style.clipPath = "circle(150% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
-}
 
-var closeButton4 = document.querySelectorAll(".card-1-popup")[2].querySelector(".close-button");
-closeButton4.onclick = closePopup4;
-function closePopup4() {
-  closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 100% 0% 0%)";
-  // document.querySelector(".layer").style.opacity = "0";
-}
-
-var card4Popup = document.querySelector(".card-4");
-card4Popup.querySelector("button").onclick = openPopup4;
-function openPopup4() {
-  closeButton4.parentElement.style.clipPath = "circle(150% at 95% 5%)";
-  document.querySelector(".layer").style.clipPath = "inset(0% 0% 0% 0%)";
-  // document.querySelector(".layer").style.opacity = "1";
-}
+  function closePopup() {
+    // closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
+    document.querySelector(".layer").style.visibility = "hidden";
+    document.querySelector(".layer").style.opacity = "0";
+    document.querySelectorAll(".card-1-popup")[index].style.visibility = "hidden";
+    document.querySelectorAll(".card-1-popup")[index].style.transform = "translateY(20%)";
+    document.querySelectorAll(".card-1-popup")[index].style.opacity = "0";
+  }
+  function openPopup() {
+    // closeButton4.parentElement.style.clipPath = "circle(150% at 95% 5%)";
+    document.querySelector(".layer").style.visibility = "visible";
+    document.querySelector(".layer").style.opacity = "1";
+    console.log(document.querySelectorAll(".card-1-popup")[index])
+    document.querySelectorAll(".card-1-popup")[index].style.visibility = "visible";
+    document.querySelectorAll(".card-1-popup")[index].style.transform = "translateY(0%)";
+    document.querySelectorAll(".card-1-popup")[index].style.opacity = "1";
+  }
+})
