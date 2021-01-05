@@ -942,7 +942,7 @@ input:-webkit-autofill:active {
   transform: translateY(20%);
   opacity: 0;
   z-index: 100;
-  padding-top: 20px;
+  padding-top: 50px;
   margin: 50px;
   overflow: auto;
 }
@@ -971,8 +971,7 @@ input:-webkit-autofill:active {
   /* backdrop-filter: blur(4px); */
   color: white;
   border-radius: 10px;
-  margin: 20px;
-  margin-top: 30px;
+  margin: 10px;
   vertical-align: top;
   transition: all 0.3s ease-in-out;
 }
