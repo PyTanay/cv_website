@@ -935,7 +935,7 @@ input:-webkit-autofill:active {
   position: fixed;
   top: 10px;
   left: 0px;
-  height: 85vh;
+  height: 75vh;
   z-index: 100;
   visibility: hidden;
   transition: all 0.5s ease-in-out;
@@ -972,11 +972,11 @@ input:-webkit-autofill:active {
   color: white;
   border-radius: 10px;
   margin: 10px;
-  vertical-align: top;
   transition: all 0.3s ease-in-out;
 }
 .project-cluster:hover {
   background-color: rgb(214, 214, 214);
+  cursor: pointer;
   /* backdrop-filter: blur(8px); */
   /* border: 2px rgba(128, 128, 128, 0) solid; */
 }
