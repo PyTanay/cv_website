@@ -935,14 +935,14 @@ input:-webkit-autofill:active {
   position: fixed;
   top: 10px;
   left: 0px;
-  height: 75vh;
+  height: 80vh;
   z-index: 100;
   visibility: hidden;
   transition: all 0.5s ease-in-out;
   transform: translateY(20%);
   opacity: 0;
   z-index: 100;
-  padding-top: 50px;
+  padding-top: 0px;
   margin: 50px;
   overflow: auto;
 }
@@ -953,6 +953,18 @@ input:-webkit-autofill:active {
   color: white;
   text-align: left;
   transition: all 0.3s ease-in-out;
+}
+.popupTitle h1{
+  font-size: 40px !important;
+  color: #112235;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+  top: 0;
+  width: 98%;
+}
+.popupTitle p{
+  margin-left: 20px;
 }
 .card-1-popup h1 {
   font-size: 20px;
@@ -1000,7 +1012,7 @@ input:-webkit-autofill:active {
   background-color: rgba(0, 0, 0, 0.507);
 }
 .close-button {
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 10px;
   width: 25px;
@@ -1011,6 +1023,7 @@ input:-webkit-autofill:active {
   color: rgb(238, 73, 73);
   border: 3px rgb(238, 73, 73) solid;
   border-radius: 25px;
+  z-index: 101;
   transition: all 0.1s ease-in-out;
 }
 .close-button:hover {
