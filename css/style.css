@@ -971,6 +971,7 @@ input:-webkit-autofill:active {
 }
 .popupTitle p{
   margin-left: 20px;
+  color: #112235;
 }
 .card-1-popup h1 {
   font-size: 20px;
