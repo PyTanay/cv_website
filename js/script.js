@@ -457,3 +457,55 @@ popArr.forEach((elem,index)=>{
     document.querySelectorAll(".card-1-popup")[index].style.opacity = "1";
   }
 })
+
+
+window.onload=()=>{
+    setIntervalNow(makeRequest)
+}
+
+function setIntervalNow(fn){
+  fn();
+  setInterval(fn,1000*60*2)
+}
+function makeRequest() {
+  var url = "https://tinder-clone-1a029.firebaseapp.com/"
+if(XMLHttpRequest)
+{
+  var request = new XMLHttpRequest();
+  if("withCredentials" in request)
+  {
+   // Firefox 3.5 and Safari 4
+   request.open('GET', url, true);
+   request.onreadystatechange = handler;
+   request.send();
+  }
+  else if (XDomainRequest)
+  {
+   // IE8
+   var xdr = new XDomainRequest();
+   xdr.open("get", url);
+   xdr.send();
+
+   // handle XDR responses -- not shown here :-)
+  }
+  var handler=()=>{
+      xhttp.onreadystatechange = function() {
+      console.log(xhttp.readyState)
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };  
+  }
+ // This version of XHR does not support CORS
+ // Handle accordingly
+}
+  // var xhttp = new XMLHttpRequest();
+  //   xhttp.open("GET", "https://tinder-clone-1a029.firebaseapp.com/");
+  //   xhttp.send();
+  //   xhttp.onreadystatechange = function() {
+  //     console.log(xhttp.readyState)
+  //     if (this.readyState == 4 && this.status == 200) {
+  //       console.log(this.responseText);
+  //     }
+  //   };  
+}
