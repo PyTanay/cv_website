@@ -18,7 +18,7 @@ textarea {
   left: 0;
   top: 0;
   width: 250px;
-  background-color: #1c3047;
+  background-color: #25303d8a;
   transition: 0.4s;
   z-index: 100;
 }
@@ -322,7 +322,7 @@ label::after {
   left: 0;
   justify-content: center;
   height: 350px;
-  padding-top: 80px;
+  padding-top: 50px;
   -webkit-perspective: 1200px;
   -moz-perspective: 1200px;
   -ms-perspective: 1200px;
@@ -635,9 +635,9 @@ label::after {
 .experience-card {
   position: absolute;
   width: 250px;
-  height: 300px;
+  height: 320px;
   /* margin-top: 30px; */
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 15px 15px 10px #112235;
   color: white;
   text-align: center;
@@ -646,15 +646,19 @@ label::after {
   padding-left: 5px;
 }
 .card-1 {
+  transform: translateX(-125px) translateZ(150px);
   -webkit-transform: translateX(-125px) translateZ(150px);
 }
 .card-2 {
+  transform: translateX(-125px) rotateY(90deg) translateZ(150px);
   -webkit-transform: translateX(-125px) rotateY(90deg) translateZ(150px);
 }
 .card-3 {
+  transform: translateX(-125px) rotateY(-90deg) translateZ(150px);
   -webkit-transform: translateX(-125px) rotateY(-90deg) translateZ(150px);
 }
 .card-4 {
+  transform: translateX(-125px) rotateY(180deg) translateZ(150px);
   -webkit-transform: translateX(-125px) rotateY(180deg) translateZ(150px);
 }
 .experience-card p {
@@ -772,6 +776,9 @@ input:-webkit-autofill:active {
   .nav-button {
     visibility: unset !important;
   }
+  .nav-button i{
+    color: white;
+  }
   .project-cluster {
     margin: 10px;
     width: auto !important;
@@ -836,7 +843,7 @@ input:-webkit-autofill:active {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
-  background-color: #555;
+  background-color: rgb(204, 32, 32);
   color: #fff;
   text-align: center;
   padding: 5px 0;
@@ -845,7 +852,7 @@ input:-webkit-autofill:active {
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 110%;
+  top:-40px;
   left: 0%;
   margin-left: auto;
   margin-right: auto;
@@ -864,7 +871,7 @@ input:-webkit-autofill:active {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: rgb(204, 32, 32) transparent transparent transparent;
 }
 
 /* pop-up to show the email sent notification... */
@@ -879,13 +886,12 @@ input:-webkit-autofill:active {
   /* display: fl`; */
   color: rgb(16, 71, 16);
   font-size: 15px;
-  font-weight: bold;
   text-align: left;
   padding: 5px;
   margin: auto;
-  border: 3px rgb(16, 71, 16) solid;
-  border-radius: 9px;
-  background-color: rgba(87, 218, 11, 0.5);
+  border: 1px rgb(16, 71, 16) solid;
+  border-radius: 4px;
+  background-color: rgb(99, 192, 135);
   transform: translate(-50%);
   z-index: 1000;
 }
@@ -905,21 +911,23 @@ input:-webkit-autofill:active {
 
 .card-btn {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 0;
   right: 0;
-  width: 80px;
+  width: 120px;
+  height: 25px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 5px;
+  border-radius: 2px;
   border: none;
-  background-color: rgba(59, 59, 59, .3);
+  background-color: rgb(122, 122, 122);
   padding: 5px;
-  line-height: 10px;
-  font-size: 15px;
-  color: rgb(255, 255, 255);
-  border: 2px rgb(255, 255, 255) solid;
-  transition-duration: 0.3s;
+  padding-top: 2px;
+  font-weight: 200;
+  font-size: 20px;
+  color:black;
+  border: 3px rgba(255, 255, 255, 0) solid;
+  transition-duration: 0.2s;
   /* font-weight: bold; */
 }
 .card-btn:hover {
