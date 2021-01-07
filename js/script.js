@@ -417,7 +417,7 @@ background.forEach((elem, index) => {
 
 //on button click close the pop-up
 document.querySelector(".layer").onclick = () => {
-  popArr.forEach((elem,index)=>{
+  popArr.forEach((elem, index) => {
     var closeButton = document.querySelectorAll(".card-1-popup")[index].querySelector(".close-button");
     closePopup();
     function closePopup() {
@@ -428,16 +428,15 @@ document.querySelector(".layer").onclick = () => {
       document.querySelectorAll(".card-1-popup")[index].style.transform = "translateY(20%)";
       document.querySelectorAll(".card-1-popup")[index].style.opacity = "0";
     }
-  })
+  });
 };
-var popArr=[".card-1",".card-3",".card-4"]
-popArr.forEach((elem,index)=>{
+var popArr = [".card-1", ".card-3", ".card-4"];
+popArr.forEach((elem, index) => {
   var closeButton = document.querySelectorAll(".card-1-popup")[index].querySelector(".close-button");
   closeButton.onclick = closePopup;
 
   var cardPopup = document.querySelector(elem);
   cardPopup.querySelector(".btn").onclick = openPopup;
-
 
   function closePopup() {
     // closeButton4.parentElement.style.clipPath = "circle(0% at 95% 5%)";
@@ -451,22 +450,23 @@ popArr.forEach((elem,index)=>{
     // closeButton4.parentElement.style.clipPath = "circle(150% at 95% 5%)";
     document.querySelector(".layer").style.visibility = "visible";
     document.querySelector(".layer").style.opacity = "1";
-    console.log(document.querySelectorAll(".card-1-popup")[index])
+    console.log(document.querySelectorAll(".card-1-popup")[index]);
     document.querySelectorAll(".card-1-popup")[index].style.visibility = "visible";
     document.querySelectorAll(".card-1-popup")[index].style.transform = "translateY(0%)";
     document.querySelectorAll(".card-1-popup")[index].style.opacity = "1";
   }
-})
+});
 
 // to make request to ready the movie app
-window.onload=()=>{
-    setIntervalNow(makeRequest)
-}
+window.onload = () => {
+  setIntervalNow(makeRequest);
+};
 
-function setIntervalNow(fn){
+function setIntervalNow(fn) {
   fn();
-  setInterval(fn,1000*60*2)
+  setInterval(fn, 1000 * 60 * 2);
 }
 function makeRequest() {
-  fetch("https://movie-app-tanay.herokuapp.com/").then(()=>{})
+  fetch("https://movie-app-tanay.herokuapp.com/").then(() => {});
+  fetch("https://tinder-backend-tanay.herokuapp.com/tinder/card").then(() => {});
 }
