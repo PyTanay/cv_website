@@ -458,7 +458,7 @@ popArr.forEach((elem,index)=>{
   }
 })
 
-
+// to make request to ready the movie app
 window.onload=()=>{
     setIntervalNow(makeRequest)
 }
@@ -468,13 +468,5 @@ function setIntervalNow(fn){
   setInterval(fn,1000*60*2)
 }
 function makeRequest() {
-  var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "https://tinder-clone-1a029.firebaseapp.com/");
-    xhttp.send();
-    xhttp.onreadystatechange = function() {
-      console.log(xhttp.readyState,this.status)
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-      }
-    };  
+  fetch("https://movie-app-tanay.herokuapp.com/").then(()=>{})
 }
