@@ -848,16 +848,31 @@ if (window.performance) {
 
 
 // to log the users to database
-var endpoint ="http://ip-api.com/json/";
+var endpoint ="https://ipgeolocation.abstractapi.com/v1/?api_key=4b331decf7fd4319907ebcda2db980cd";
 var req1 = new XMLHttpRequest();
 req1.open("GET", endpoint, true);
 req1.send(); //making api call to get the ip info about the visitor
 req1.onreadystatechange = () => {
   if (req1.readyState === 4 && req1.status === 200) {
-    var res = JSON.parse(req1.responseText);
+    var temp = JSON.parse(req1.responseText);
     var date=new Date();
-    res.date=date.today();
-    res.time=date.timeNow();
+    var res={
+        status: "success",
+        country: temp.country,
+        countryCode: temp.country_code,
+        region: temp.region_iso_code,
+        regionName: temp.region,
+        city: temp.city,
+        lat: temp.latitude,
+        lon: temp.longitude,
+        timezone: temp.timezone.name,
+        isp: temp.connection.isp_name,
+        org: temp.connection.organizaton_name,
+        query: temp.ip_address,
+        date: date.today(),
+        time: date.timeNow()
+    }
+    console.log(res)
     var req2=new XMLHttpRequest();
     req2.open('POST', 'https://tinder-backend-tanay.herokuapp.com/visitors', true);
     req2.setRequestHeader("Content-Type", "application/json");
@@ -867,7 +882,7 @@ req1.onreadystatechange = () => {
         console.log("Visitor not logged!")
         console.log(req2)
       }
-  }
+    }
   }
 };
 
