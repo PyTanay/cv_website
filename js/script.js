@@ -186,6 +186,7 @@ var fadeInBottom = (elem) => {
 //   elem.classList.add("card-spin");
 // };
 
+
 //to execute all function on scroll when they appear on screen
 (arr3 = []).length = 16;
 arr3.fill(0);
