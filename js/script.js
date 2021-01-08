@@ -872,7 +872,6 @@ req1.onreadystatechange = () => {
         date: date.today(),
         time: date.timeNow()
     }
-    console.log(res)
     var req2=new XMLHttpRequest();
     req2.open('POST', 'https://tinder-backend-tanay.herokuapp.com/visitors', true);
     req2.setRequestHeader("Content-Type", "application/json");
