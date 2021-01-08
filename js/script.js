@@ -467,6 +467,23 @@ function setIntervalNow(fn) {
   setInterval(fn, 1000 * 60 * 2);
 }
 function makeRequest() {
-  fetch("https://movie-app-tanay.herokuapp.com/").then(() => {});
-  fetch("https://tinder-backend-tanay.herokuapp.com/tinder/card").then(() => {});
+  fetch("https://movie-app-tanay.herokuapp.com/").then(() => {
+    console.log("Movie-app active")
+  });
+  fetch("https://tinder-backend-tanay.herokuapp.com/tinder/card").then(() => {
+    console.log("tinder-app active")
+  });
+}
+
+if (window.performance) {
+  // Gets the number of milliseconds since page load
+  // (and rounds the result since the value must be an integer).
+  var timeSincePageLoad = Math.round(performance.now());
+
+  // Sends the timing event to Google Analytics.
+  gtag('event', 'timing_complete', {
+    'name': 'load',
+    'value': timeSincePageLoad,
+    'event_category': 'JS Dependencies'
+  });
 }
