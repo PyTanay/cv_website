@@ -367,6 +367,6 @@ function closePopUp() {
 var downloadBtnList = document.querySelectorAll("#download");
 downloadBtnList.forEach((elem) => {
   elem.onclick = () => {
-    window.open("./assets/Tanay_resume_2020.pdf", "_blank");
+    window.open("./assets/Tanay_resume_2022.pdf", "_blank");
   };
 });
