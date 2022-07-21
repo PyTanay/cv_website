@@ -388,7 +388,7 @@ var sendMail = () => {
     };
     document.getElementsByTagName("form")[0].querySelector("button").innerText = "Sending...";
     emailjs
-      .send("service_jjxtvl8", "template_ysum0ap", obj1)
+      .send("service_1l9hf9b", "template_ysum0ap", obj1)
       .then(() => {
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
