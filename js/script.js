@@ -495,18 +495,7 @@ function makeRequest() {
   });
 }
 
-if (window.performance) {
-  // Gets the number of milliseconds since page load
-  // (and rounds the result since the value must be an integer).
-  var timeSincePageLoad = Math.round(performance.now());
 
-  // Sends the timing event to Google Analytics to log load time.
-  gtag("event", "timing_complete", {
-    name: "load",
-    value: timeSincePageLoad,
-    event_category: "JS Dependencies",
-  });
-}
 
 // to log the users to database
 var endpoint = "https://ipgeolocation.abstractapi.com/v1/?api_key=4b331decf7fd4319907ebcda2db980cd";
