@@ -498,7 +498,7 @@ function makeRequest() {
 
 
 // to log the users to database
-var endpoint = "https://ipgeolocation.abstractapi.com/v1/?api_key=4b331decf7fd4319907ebcda2db980cd";
+var endpoint = "https://ipgeolocation.abstractapi.com/v1/?api_key=0bb92d50ecfe4f1caa93f4e0d90b74bb";
 var req1 = new XMLHttpRequest();
 req1.open("GET", endpoint, true);
 req1.send(); //making api call to get the ip info about the visitor
