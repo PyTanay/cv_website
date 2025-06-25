@@ -330,7 +330,7 @@ var sendMail = () => {
     var obj1 = { from_name, reply_to, message, subject };
     document.getElementsByTagName("form")[0].querySelector("button").innerText = "Sending...";
     emailjs
-      .send("service_jjxtvl8", "template_ysum0ap", obj1)
+      .send("service_05hbnep", "template_ysum0ap", obj1)
       .then(() => {
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
